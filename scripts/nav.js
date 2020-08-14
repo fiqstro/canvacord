@@ -29,15 +29,15 @@ const init = async () => {
         updateTheme();
 
         themeBtn.addEventListener("click", function () {
-            const DBTheme = localStorage.getItem("theme") || "light";
-            if (DBTheme === "light") localStorage.setItem("theme", "dark");
-            else localStorage.setItem("theme", "light");
+            const DBTheme = localStorage.getItem("theme") || "dark";
+            if (DBTheme === "dark") localStorage.setItem("theme", "light");
+            else localStorage.setItem("theme", "dark");
             updateTheme();
         });
 
         function updateTheme () {
-            const bodyTheme = body.getAttribute("data-theme") || "light";
-            const DBTheme = localStorage.getItem("theme") || "light";
+            const bodyTheme = body.getAttribute("data-theme") || "dark";
+            const DBTheme = localStorage.getItem("theme") || "dark";
 
             if (DBTheme === "dark" && bodyTheme !== "dark") {
                 body.setAttribute("data-theme", "dark");
