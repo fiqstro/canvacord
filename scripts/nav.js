@@ -1,10 +1,11 @@
 const init = async () => {
-    if (!localStorage.getItem("theme")) {
-        localStorage.setItem("theme", "dark");
-        body.setAttribute("data-theme", "dark");
-    }
     window.addEventListener("DOMContentLoaded", function () {
         const body = document.querySelector("body");
+        
+        if (!localStorage.getItem("theme")) {
+            localStorage.setItem("theme", "dark");
+            body.setAttribute("data-theme", "dark");
+        }
 
         // Burger
         const burger = document.querySelector(".burger"),
