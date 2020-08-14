@@ -1,4 +1,5 @@
 const init = async () => {
+    if (!localStorage.getItem("theme")) localStorage.setItem("theme", "dark");
     window.addEventListener("DOMContentLoaded", function () {
         const body = document.querySelector("body");
 
