@@ -1,5 +1,8 @@
 const init = async () => {
-    if (!localStorage.getItem("theme")) localStorage.setItem("theme", "dark");
+    if (!localStorage.getItem("theme")) {
+        localStorage.setItem("theme", "dark");
+        body.setAttribute("data-theme", "dark");
+    }
     window.addEventListener("DOMContentLoaded", function () {
         const body = document.querySelector("body");
 
@@ -40,12 +43,12 @@ const init = async () => {
             const bodyTheme = body.getAttribute("data-theme") || "dark";
             const DBTheme = localStorage.getItem("theme") || "dark";
 
-            if (DBTheme === "dark" && bodyTheme !== "dark") {
-                body.setAttribute("data-theme", "dark");
-                themeBtn.innerHTML = "💡 Turn on the lights";
-            } else if (DBTheme === "light" && bodyTheme !== "light") {
+            if (DBTheme === "light" && bodyTheme !== "light") {
                 body.setAttribute("data-theme", "light");
                 themeBtn.innerHTML = "🌙 Turn off the lights";
+            } else {
+                body.setAttribute("data-theme", "dark");
+                themeBtn.innerHTML = "💡 Turn on the lights";
             }
         }
 
